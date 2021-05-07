@@ -4,11 +4,6 @@
             <a href="#" class="navbar-brand">Laravel Guide</a>
             <ul class="nav navbar-nav">
                 <li><a href="/admin/">Posts</a></li>
-                <li>
-                    <a href="/about/">
-                        About
-                    </a>
-                </li>
             </ul>
         </div>
     </div>

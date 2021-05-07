@@ -1,5 +1,6 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +12,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function () { return view('/blog/index');});
+Route::get('/post/{id}',function ($id){
+    return view('blog.post',['id'=>$id]);
 });
+Route::group(['prefix'=>'admin','as'=>'admin.'], function(){
+    Route::get('/', ['as' => 'index', function(){ return view('admin/index');}])->name('admin.index');
+    Route::get('create', ['as' => 'create',function(){ return view('admin/create');}] )->name('admin.create');
+    Route::get('edit', ['as' => 'edit', function(){ return view('admin/edit');}])->name('admin.edit');
+});
+Route::get('/about',function (){
+    return view('/other/about');
+})->name('about');
+
+
